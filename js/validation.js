@@ -29,9 +29,6 @@ validation
     .addField("#password", [
         {
             rule: "required"
-        },
-        {
-            rule: "password"
         }
     ])
     .addField("#password_confirmation", [

@@ -7,8 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mysqli = require __DIR__ . "/database.php";
     
     $sql = sprintf("SELECT * FROM user
-                    WHERE email = '%s'",
-                   $mysqli->real_escape_string($_POST["email"]));
+                    WHERE email = '%s'");
     
     $result = $mysqli->query($sql);
     
@@ -16,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     if ($user) {
         
-        if (password_verify($_POST["password"], $user["password_hash"])) {
+        if (password_verify($_POST["password"], $user["password"])) {
             
             session_start();
             
@@ -45,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <h1>Login</h1>
     
     <?php if ($is_invalid): ?>
-        <em>Invalid login</em>
+        <em>Invalid email</em>
     <?php endif; ?>
     
     <form method="post">
