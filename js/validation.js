@@ -1,3 +1,4 @@
+
 const validation = new JustValidate("#signup");
 
 validation
