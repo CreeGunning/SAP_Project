@@ -1,5 +1,6 @@
 <?php
 
+//Server-Side Validation
 if (empty($_POST["name"])) {
     die("Name is required");
 }
